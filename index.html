@@ -119,12 +119,12 @@
 				<section>
 					<h3>Webpack 5 and Module Federation</h3>
 
-					Mucha gente conoce ya webpack, es dificil de configurar.
+					Mucha gente conoce ya webpack, es complejo de configurar. Crea un bundle de módulos 
 
 				</section>
 				<section>
 					<h3>Single SPA</h3>
-					Dificil de configurar.
+					Complejo de configurar. Crea un bundle de módulos 
 				</section>
 				<section>
 					<h3>Project Mosaic</h3>
@@ -152,6 +152,51 @@
 			<section data-background="#21371b">
 				<h3>Podium</h3>
 				<img src="https://podium-lib.io/img/podium.png" alt="podium">
+			</section>
+			
+			<section>
+				<section>
+					<h3>Módulos que nos ofrece Podium</h3>
+				</section>
+				<section>
+					<h2>@podium/layout</h2>
+					<p>Base de todos los microfront. Él tiene la resposibidad de montar todos</p>
+					<p>Necesita de un servidor para poder funcionar (Express, Hapi, Fastify) </p>
+				</section>
+				<section>
+					<h2>@podium/podlet</h2>
+					<p>Es el encargado de exponer la configuración (js y css) del microfront.</p>
+				</section>				
+				<section>
+					<h2>@podium/browser</h2>
+					<p>Actualmente sólo sierve como gestor de mensajes entre Frontends</p>
+				</section>
+			</section>
+			<section data-auto-animate>
+				<section>
+					<h2 data-id="code-title">Cambios en App Vue</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|8"><script type="text/template">
+						import Vue from 'vue'
+						import App from './App.vue'
+
+						Vue.config.productionTip = false
+
+						new Vue({
+						render: h => h(App),
+						}).$mount('#app')
+					</script></code></pre>
+				</section>
+				<section>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|8"><script type="text/template">
+						import Vue from 'vue'
+						import App from './App.vue'
+
+						Vue.config.productionTip = false
+
+						new Vue({
+						render: h => h(App),
+						}).$mount('#nombre-microfront')
+					</script></code></pre>
 			</section>
 
 		</div>
