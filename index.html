@@ -19,7 +19,7 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section>
+			<section data-timing="1">
 				<img src="https://www.spec-india.com/wp-content/uploads/2019/12/Micro_Frontend-2-768x422.png"
 					alt="logo ponencia">
 			</section>
@@ -31,6 +31,9 @@
 						La arquitectura de microservicios [...] consiste en construir una aplicación como un conjunto de **pequeños servicios**, los cuales se ejecutan en su propio proceso y se comunican con mecanismos ligeros (normalmente una API de recursos HTTP) [Wikipedia](https://es.wikipedia.org/wiki/Arquitectura_de_microservicios)
 						
 					</script>
+					<aside class="notes">
+						Shhh, these are your private notes 📝
+					</aside>
 				</section>
 				<section>
 					<img src="https://miro.medium.com/max/3498/1*xu1Ge_Cew0DHdSU6ETcpLQ.png" alt="microsercio">
@@ -52,11 +55,13 @@
 
 					<p>Surge en el 2016 por primera vez</p>
 
-					<p> La idea detrás de Micro Frontends es pensar en un sitio web o aplicación web como una composición de
+					<p> La idea detrás de Micro Frontends es pensar en un sitio web o aplicación web como una
+						composición de
 						características que son propiedad de equipos independientes. </p>
 
 					<p>Cada equipo tiene un área de negocio definida o misión de la que se preocupa y se especializa. Un
-						equipo es cross functional y desarrolla sus características end-to-end, desde la base de datos hasta
+						equipo es cross functional y desarrolla sus características end-to-end, desde la base de datos
+						hasta
 						la interfaz de usuario.</p>
 
 
@@ -66,15 +71,15 @@
 					<img src="https://micro-frontends-es.org/ressources/diagrams/organisational/monolith-frontback-microservices.png"
 						alt="mono-1">
 				</section>
-	
+
 				<section>
 					<h3>Organización vertical Microfrontend</h3>
 					<img src="https://micro-frontends-es.org/ressources/diagrams/organisational/verticals-headline.png"
 						alt="mono-2">
 				</section>
-	
+
 			</section>
-			
+
 			<section>
 				<h3>¿Cuándo es recomendable usar esta metodología?</h3>
 				<ul>
@@ -119,12 +124,12 @@
 				<section>
 					<h3>Webpack 5 and Module Federation</h3>
 
-					Mucha gente conoce ya webpack, es complejo de configurar. Crea un bundle de módulos 
+					Mucha gente conoce ya webpack, es complejo de configurar. Crea un bundle de módulos
 
 				</section>
 				<section>
 					<h3>Single SPA</h3>
-					Complejo de configurar. Crea un bundle de módulos 
+					Complejo de configurar. Crea un bundle de módulos
 				</section>
 				<section>
 					<h3>Project Mosaic</h3>
@@ -153,23 +158,31 @@
 				<h3>Podium</h3>
 				<img src="https://podium-lib.io/img/podium.png" alt="podium">
 			</section>
-			
+
 			<section>
 				<section>
 					<h3>Módulos que nos ofrece Podium</h3>
 				</section>
 				<section>
 					<h2>@podium/layout</h2>
-					<p>Base de todos los microfront. Él tiene la resposibidad de montar todos</p>
+					<p>Base de todos los microfront. Él tiene la responsabilidad de montar todos</p>
 					<p>Necesita de un servidor para poder funcionar (Express, Hapi, Fastify) </p>
 				</section>
 				<section>
 					<h2>@podium/podlet</h2>
 					<p>Es el encargado de exponer la configuración (js y css) del microfront.</p>
-				</section>				
-				<section>
+				</section>
+				<section data-auto-animate>
 					<h2>@podium/browser</h2>
 					<p>Actualmente sólo sierve como gestor de mensajes entre Frontends</p>
+					<pre data-id="code-animation"><code class="hljs"><script type="text/template">
+import { MessageBus } from '@podium/browser';
+const messageBus = new MessageBus();
+
+messageBus.publish(channel, topic, payload);
+
+messageBus.subscribe(channel, topic, event => {});
+				</script></code></pre>
 				</section>
 			</section>
 			<section data-auto-animate>
@@ -197,8 +210,45 @@
 						render: h => h(App),
 						}).$mount('#nombre-microfront')
 					</script></code></pre>
-			</section>
+				</section>
+				<section>
+					<h3>Cambio en public/index.html</h3>
+					<pre><code class="html"><noscript>
+<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected --></code></pre>
 
+					<pre><code class="html"><noscript>
+<strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="nombre-microfront"></div>
+<!-- built files will be auto injected --></code></pre>
+
+				</section>
+				<section>
+					<h3>Script de arranque</h3>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|8"><script type="text/template">
+					"start": "set NODE_ENV=production && node podlet.js ", 
+					"start:dev": "set NODE_ENV=development && node podlet.js "
+					</script></code></pre>
+				</section>
+			</section>
+			<section>
+				<h3>configuración de podlet</h3>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1-7|9-10" ><script type="text/template">
+				const podlet = new Podlet({
+					name: "vueLogin", // required
+					version: "0.1.0", // required
+					pathname: "/", // required
+					manifest: "/manifest.json", // optional, 
+					development: true, // optional, defaults to false
+				  });		
+				
+				app.use("/css", express.static("dist/css/"));
+				app.use("/js", express.static("dist/js/"));
+				</script></code></pre>
+			</section>
 		</div>
 	</div>
 

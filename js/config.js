@@ -210,6 +210,7 @@ export default {
 	// presenting each slide. This is used to show a pacing timer in the
 	// speaker view
 	defaultTiming: null,
+	
 
 	// Enable slide navigation via mouse wheel
 	mouseWheel: false,
