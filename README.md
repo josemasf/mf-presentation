@@ -1,3 +1,11 @@
+#Presentación de arquitectura para microfontend
+
+Esta presentación se ha usado en el taller de microfrontend realizado en Innovation Strategies
+
+Usar la letra S para ver las nota para el orador
+
+
+
 <p align="center">
   <a href="https://revealjs.com">
   <img src="https://hakim-static.s3.amazonaws.com/reveal-js/logo/v1/reveal-black-text.svg" alt="reveal.js" width="450">
