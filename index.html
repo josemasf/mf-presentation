@@ -235,7 +235,7 @@ messageBus.subscribe(channel, topic, event => {});
 				</section>
 			</section>
 			<section>
-				<h3>configuración de podlet</h3>
+				<h3>Configuración de podlet</h3>
 				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1-7|9-10" ><script type="text/template">
 				const podlet = new Podlet({
 					name: "vueLogin", // required
@@ -248,6 +248,11 @@ messageBus.subscribe(channel, topic, event => {});
 				app.use("/css", express.static("dist/css/"));
 				app.use("/js", express.static("dist/js/"));
 				</script></code></pre>
+
+				<aside class="notes">
+					<p>Recordar decir que hay que lanzar un build para que se genere los archivos en dist </p>
+					<p>El varlor por defecto de manifest es manifest.json</p>
+				</aside>
 			</section>
 		</div>
 	</div>
