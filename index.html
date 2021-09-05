@@ -30,22 +30,20 @@
 
 						La arquitectura de microservicios [...] consiste en construir una aplicación como un conjunto de **pequeños servicios**, los cuales se ejecutan en su propio proceso y se comunican con mecanismos ligeros (normalmente una API de recursos HTTP) [Wikipedia](https://es.wikipedia.org/wiki/Arquitectura_de_microservicios)
 						
-					</script>
-					<aside class="notes">
-						Shhh, these are your private notes 📝
-					</aside>
+					</script>					
 				</section>
 				<section>
 					<img src="https://miro.medium.com/max/3498/1*xu1Ge_Cew0DHdSU6ETcpLQ.png" alt="microsercio">
 				</section>
 				<section>
+					<h3>Ventajas</h3>
 					<ul>
-						<li><b>Modularidad</b> -> se pueden desarrollar y desplegar de forma independiente.</li>
-						<li><b>Escalabilidad </b> -> se puede escalar cada parte según sea necesario.</li>
-						<li><b>Versatilidad</b> -> usar diferentes tecnologías y lenguajes.</li>
-						<li><b>Rapidez de actuación</b> -> desarrollo menos costoso.</li>
-						<li><b>Mantenibilidad</b> -> mejoras independientes.</li>
-						<li><b>Agilidad</b> -> Reusar código de terceros.</li>
+						<li class="fragment fade-up"><b>Modularidad</b> -> se pueden desarrollar y desplegar de forma independiente.</li>
+						<li class="fragment fade-up"><b>Escalabilidad </b> -> se puede escalar cada parte según sea necesario.</li>
+						<li class="fragment fade-up"><b>Versatilidad</b> -> usar diferentes tecnologías y lenguajes.</li>
+						<li class="fragment fade-up"><b>Rapidez de actuación</b> -> desarrollo menos costoso.</li>
+						<li class="fragment fade-up"><b>Mantenibilidad</b> -> mejoras independientes.</li>
+						<li class="fragment fade-up"><b>Agilidad</b> -> Reusar código de terceros.</li>
 					</ul>
 				</section>
 			</section>
@@ -104,9 +102,26 @@
 				<ul>
 					<li>Pequeños equipos</li>
 					<li>Cuándo los mircofrontend compliquen el desarrollo</li>
-					<li>Cuando no estemos usando métodos automáticos de desplegue</li>
+					<li>Cuando no estemos usando métodos automáticos de despliegue</li>
 					<li>Cuando el equipo sea demasiado junior.</li>
 				</ul>
+			</section>
+
+			<section>
+				<h3>Cómo trocear la aplicación</h3>
+				<ul>
+					<li><b>Por página</b> Es la forma más segura para navegadores antiguos.Si tiene un buen enrutamiento, puede ejecutar microaplicaciones específicas separadas para cada página, lo que también es bueno para los desarrolladores de su equipo, porque siempre trabajarán en esa página asignada.</li>
+					<li><b>Por funcionalidad</b> una página con varias funciones que realizan diferentes operaciones, puede dividir esas funciones grandes en aplicaciones más pequeñas y convertirla en una aplicación independiente  </li>					
+				</ul>
+			</section>
+
+			<section>
+				<section data-background-iframe="https://micro-frontends-es.org/0-model-store/" data-background-interactive data-background="#FFF">					
+				</section>
+				<section>
+					<h4>Responsabilidad de los equipos</h4>
+					<img src="https://micro-frontends-es.org/ressources/screen/three-teams.png" width="768"  />
+				</section>
 			</section>
 
 			<section>
@@ -133,7 +148,7 @@
 				</section>
 				<section>
 					<h3>Project Mosaic</h3>
-					Es la arquitectura usada y propesta por Zalando
+					Es la arquitectura usada y propuesta por Zalando
 
 					<img src="https://www.mosaic9.org/images/diagram.png" alt="Mosaic" height="400">
 				</section>
@@ -174,7 +189,7 @@
 				</section>
 				<section data-auto-animate>
 					<h2>@podium/browser</h2>
-					<p>Actualmente sólo sierve como gestor de mensajes entre Frontends</p>
+					<p>Actualmente sólo sirve como gestor de mensajes entre Frontends</p>
 					<pre data-id="code-animation"><code class="hljs"><script type="text/template">
 import { MessageBus } from '@podium/browser';
 const messageBus = new MessageBus();
@@ -251,7 +266,7 @@ messageBus.subscribe(channel, topic, event => {});
 
 				<aside class="notes">
 					<p>Recordar decir que hay que lanzar un build para que se genere los archivos en dist </p>
-					<p>El varlor por defecto de manifest es manifest.json</p>
+					<p>El valor por defecto de manifest es manifest.json</p>
 				</aside>
 			</section>
 			<section data-background-iframe="http://localhost:7300/" data-background-interactive>
